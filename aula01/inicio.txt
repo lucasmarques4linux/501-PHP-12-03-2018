@@ -1,0 +1,13 @@
+abriu o terminal
+
+cd /var/www/
+mkdir html
+cd html/
+mkdir 501
+cd 501
+subl .
+----------------------------
+sudo subl /etc/php/7.0/apache2/php.ini
+Na linha 462
+display_errors = On
+sudo service apache2 restart
