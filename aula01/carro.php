@@ -13,7 +13,7 @@ class Carro
 	private $cor;
 	private $marca;
 	private $velocidade;
-	private $marca;
+	private $marcha;
 
 	public function __construct($cor,$marca){
 		$this->cor = $cor;
@@ -41,3 +41,16 @@ class Carro
 		return "O Carro é da marca:" . $this->marca;
 	}
 }
+
+$fusca = new Carro("preto","VW");
+$fusca->acelelar();
+$fusca->acelelar();
+$fusca->trocarMarcha(2);
+$fusca->acelelar();
+$fusca->acelelar();
+$fusca->acelelar();
+$fusca->trocarMarcha(3);
+echo $fusca->verVelocidade();
+$fusca->freiar();
+echo $fusca->verVelocidade();
+var_dump($fusca);
