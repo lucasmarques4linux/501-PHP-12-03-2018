@@ -6,7 +6,16 @@ use Model\Aluno;
 
 class Turma
 {
-	public function __construct(){
-		$alu = new Aluno();
+	private $aluno;
+
+	public function __construct(Aluno $aluno){
+		$this->aluno = $aluno;
+	}
+
+	public function getAluno(){
+		return $this->aluno;
+	}
+	public function getAluNome(){
+		return $this->aluno->getNome();
 	}
 }
