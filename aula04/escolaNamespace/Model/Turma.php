@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use Model\Aluno;
+// use Model\Aluno;
 
 class Turma
 {
