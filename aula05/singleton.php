@@ -21,3 +21,6 @@ class Conexao
 }
 
 var_dump(Conexao::getInstance());
+var_dump(Conexao::getInstance());
+var_dump(Conexao::getInstance());
+// var_dump(new PDO('pgsql:host=localhost;dbname=aula05','lucas','123'));

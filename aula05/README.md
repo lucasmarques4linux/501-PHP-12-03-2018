@@ -75,3 +75,8 @@ sudo apt install php7.0-pgsql
 ```
 sudo apt install php7.0-mysql
 ```
+
+## Reiniciar o apache2
+``` 
+sudo service apache2 restart
+```
