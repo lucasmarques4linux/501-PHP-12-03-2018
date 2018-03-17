@@ -33,6 +33,9 @@ exit
 psql -h localhost -U lucas aula
 ```
 
+## Criando as tabelas
+https://github.com/lucasmarques4linux/500-PHP-26-02-2018/blob/master/projeto/script-postgres.sql
+
 # MySQL
 
 ## Logando como super usuário
@@ -63,6 +66,8 @@ exit
 mysql -u lucas -p
 use aula;
 ```
+## Criando as tabelas
+https://github.com/lucasmarques4linux/500-PHP-26-02-2018/blob/master/projeto/script-mysql.sql
 
 # PHP
 
