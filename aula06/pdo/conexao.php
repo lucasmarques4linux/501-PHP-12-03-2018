@@ -23,4 +23,4 @@ class Conexao
 	}
 }
 
-var_dump(Conexao::getInstance());
+// var_dump(Conexao::getInstance());
