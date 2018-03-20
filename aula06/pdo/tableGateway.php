@@ -2,7 +2,7 @@
 
 require 'conexao.php';
 
-class TableGateway
+abstract class TableGateway
 {
 	private $con;
 
@@ -11,8 +11,8 @@ class TableGateway
 	}
 
 	// $dados = ['nome' => 'Lucas','email' => 'lucas@lucas.com'];
-	// $tabela = 'tb_usuarios';
-	public function inserir(string $tabela, array $dados){
+	// $this->table = 'tb_usuarios';
+	public function inserir( array $dados){
 
 		//$campos =['nome','email'];
 		//$valores=['Lucas','lucas@lucas.com'];
@@ -27,16 +27,16 @@ class TableGateway
 		$valores= implode(',', $valores);
 
 		//$sql = "INSERT INTO tb_usuarios(nome,senha) VALUES(Lucas,lucas@lucas.com)";
-		$sql = "INSERT INTO {$tabela}({$campos}) VALUES({$valores})";
+		$sql = "INSERT INTO {$this->table}({$campos}) VALUES({$valores})";
 		echo $sql;
 
 		$this->con->exec($sql);
 	}
 
 	// $dados = ['nome' => 'Lucas','email' => 'lucas@lucas.com'];
-	// $tabela = 'tb_usuarios';
+	// $this->table = 'tb_usuarios';
 	// $onde = 'id = 1';
-	public function atualizar(string $tabela,array $dados, string $onde){
+	public function atualizar(array $dados, string $onde){
 		//$sets =['nome = Lucas','email = lucas@lucas.com'];
 		foreach ($dados as $campo => $valor) {
 			$sets[] = "{$campo} = '{$valor}'";
@@ -46,41 +46,41 @@ class TableGateway
 		$sets = implode(',', $sets);
 
 		//$sql = "INSERT INTO tb_usuarios(nome,senha) VALUES(Lucas,lucas@lucas.com)";
-		$sql = "UPDATE {$tabela} SET {$sets} WHERE {$onde}";
+		$sql = "UPDATE {$this->table} SET {$sets} WHERE {$onde}";
 
 		echo $sql;
 
 		$this->con->exec($sql);
 	}
 
-	// $tabela = tb_usuarios;
+	// $this->table = tb_usuarios;
 	// $onde = id = 1;
-	public function deletar(string $tabela, string $onde){
+	public function deletar( string $onde){
 		// DELETE FROM tb_usuarios WHERE id = 1;
-		$sql = "DELETE FROM {$tabela} WHERE {$onde}";
+		$sql = "DELETE FROM {$this->table} WHERE {$onde}";
 		echo $sql;
 		$this->con->exec($sql);
 	}
 
-	// $tabela = tb_usuarios;
+	// $this->table = tb_usuarios;
 	// $onde = id = 4;
-	public function buscar(string $tabela,string $onde){
+	public function buscar(string $onde){
 		// SELECT * FROM tb_usuarios WHERE id = 4
-		$sql = "SELECT * FROM {$tabela} WHERE {$onde}";
+		$sql = "SELECT * FROM {$this->table} WHERE {$onde}";
 
 		echo $sql;
 
 		$resultado = $this->con->query($sql);
-		$registro = $resultado->fetch(PDO::FETCH_ASSOC);
+		$registro = $resultado->fetchObject($this->entity);
 
 		return $registro;
 	}
 
-	// $tabela = tb_usuarios;
+	// $this->table = tb_usuarios;
 	// $onde = nome like '%lucas%';
-	public function buscarTodos(string $tabela,string $onde = null){
+	public function buscarTodos(string $onde = null){
 		// SELECT * FROM tb_usuarios WHERE id = 4
-		$sql = "SELECT * FROM {$tabela}";
+		$sql = "SELECT * FROM {$this->table}";
 
 		if ($onde) {
 			$sql .= " WHERE {$onde}";
@@ -89,9 +89,12 @@ class TableGateway
 		echo $sql;
 
 		$resultado = $this->con->query($sql);
-		$registro = $resultado->fetchAll(PDO::FETCH_ASSOC);
+		
+		while ($registro = $resultado->fetchObject($this->entity)) {
+			$colecao[] = $registro;
+		}
 
-		return $registro;
+		return $colecao;
 	}	
 }
 // echo "<pre>";
