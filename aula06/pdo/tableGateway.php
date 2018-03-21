@@ -21,12 +21,12 @@ abstract class TableGateway
 			$valores[] = "'$valor'";
 		}
 
-		// $campos = "nome,senha";
+		// $campos = "nome,email";
 		$campos = implode(',', $campos);
 		// $valores = "Lucas,lucas@lucas.com";
 		$valores= implode(',', $valores);
 
-		//$sql = "INSERT INTO tb_usuarios(nome,senha) VALUES(Lucas,lucas@lucas.com)";
+		//$sql = "INSERT INTO tb_usuarios(nome,email) VALUES(Lucas,lucas@lucas.com)";
 		$sql = "INSERT INTO {$this->table}({$campos}) VALUES({$valores})";
 		echo $sql;
 
@@ -45,7 +45,7 @@ abstract class TableGateway
 		// $sets = 'nome=Lucas,email=lucas@lucas.com';
 		$sets = implode(',', $sets);
 
-		//$sql = "INSERT INTO tb_usuarios(nome,senha) VALUES(Lucas,lucas@lucas.com)";
+		//$sql = "UPDATE tb_usuarios SET nome=Lucas,email=lucas@lucas.com WHERE id = 1 ";
 		$sql = "UPDATE {$this->table} SET {$sets} WHERE {$onde}";
 
 		echo $sql;
