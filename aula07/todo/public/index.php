@@ -15,3 +15,11 @@ echo "<hr>";
 
 $users = (new UsuariosMapper())->findAll();
 print_r($users);
+
+$dados = [
+	'nome' => 'Gabriel Jesus',
+	'email' => 'gabriel@gmail.com',
+	'senha' => md5('123')
+];
+
+(new UsuariosMapper)->insert($dados);
