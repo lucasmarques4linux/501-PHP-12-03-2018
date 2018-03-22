@@ -1,0 +1,18 @@
+mvc/
+	.app/
+		.Controller/
+		.Lib/
+			.Db/
+			.TableGateway/
+			.BaseView/
+			.FrontController/
+		.Model/
+			.Entity/
+			.Mapper/
+		.View/
+			.layout/
+	.config/
+		config.php
+	.public/
+		index.php
+	autoload.php
