@@ -17,8 +17,7 @@ class Controller
 
 	public function run(){
 		$usuarios = $this->model->getUsuarios();
-		print_r($usuarios);
-		die();
-		$this->view->render();
+		$this->view->render('listaUsuarios',
+			['usuarios' => $usuarios]);
 	}
 }
