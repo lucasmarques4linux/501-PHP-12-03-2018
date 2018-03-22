@@ -2,9 +2,11 @@
 
 namespace Lib\FrontController;
 
+use Controller\UsuariosController;
+
 class FrontController
 {
-	public function run(string $route){
-		echo $route;
+	public function run(){
+		
 	}
 }
