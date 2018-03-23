@@ -16,4 +16,7 @@ class UsuariosModel
 	public function all(){
 		return $this->usuariosMapper->findAll();
 	}
+	public function insert($data){
+		$this->usuariosMapper->insert($data);
+	}
 }

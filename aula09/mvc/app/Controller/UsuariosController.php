@@ -22,7 +22,12 @@ class UsuariosController
 	}
 
 	public function new(){
-		echo "Controller - New";
+		$this->baseView->render('usuarios/new');
+	}
+
+	public function create(){
+		$this->usuariosModel->insert($_POST);
+		header('Location:?r=usuarios');
 	}
 
 	public function edit($id){
