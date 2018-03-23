@@ -20,7 +20,7 @@ class TarefasController
 			['tarefas' => $tarefas]);
 	}
 	public function new(){
-		echo 'New TarefasController';
+		$this->baseView->render('tarefas/new');
 	}
 	public function create(){
 		echo 'Create TarefasController';
