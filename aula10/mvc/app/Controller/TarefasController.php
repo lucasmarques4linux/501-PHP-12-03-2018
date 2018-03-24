@@ -26,10 +26,13 @@ class TarefasController
 		$this->tarefasModel->insert($_POST);
 		header('Location:?r=tarefas');
 	}
-	public function edit(){
-		echo 'Edit TarefasController';
+	public function edit($id){
+		$tarefa = $this->tarefasModel->edit($id);
+		$this->baseView->render('tarefas/edit',
+			['tarefa' => $tarefa]);
 	}
-	public function update(){
-		echo 'Update TarefasController';
+	public function update($id){
+		$this->tarefasModel->update($id,$_POST);
+		header('Location:?r=tarefas');
 	}
 }
