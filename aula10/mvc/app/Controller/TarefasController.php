@@ -23,7 +23,8 @@ class TarefasController
 		$this->baseView->render('tarefas/new');
 	}
 	public function create(){
-		echo 'Create TarefasController';
+		$this->tarefasModel->insert($_POST);
+		header('Location:?r=tarefas');
 	}
 	public function edit(){
 		echo 'Edit TarefasController';

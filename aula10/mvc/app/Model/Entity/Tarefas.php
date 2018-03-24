@@ -5,10 +5,10 @@ namespace Model\Entity;
 class Tarefas
 {
 	private $id;
-	private $idUsuario;
+	private $idusuario;
 	private $descricao;
-	private $dtInicio;
-	private $dtFim;
+	private $dtinicio;
+	private $dtfim;
 	private $status;
 
 	public function getId()
@@ -21,14 +21,14 @@ class Tarefas
 	    $this->id = $id;
 	}
 
-	public function getIdUsuario()
+	public function getIdusuario()
 	{
-	    return $this->idUsuario;
+	    return $this->idusuario;
 	}
 	
-	public function setIdUsuario($idUsuario)
+	public function setIdusuario($idusuario)
 	{
-	   $this->idUsuario = $idUsuario;
+	   $this->idusuario = $idusuario;
 	}
 
 	public function getDescricao()
@@ -41,24 +41,24 @@ class Tarefas
 	    $this->descricao = $descricao;
 	}
 
-	public function getDtInicio()
+	public function getDtinicio()
 	{
-	    return $this->dtInicio;
+	    return $this->dtinicio;
 	}
 	
-	public function setDtInicio($dtInicio)
+	public function setDtinicio($dtinicio)
 	{
-	   $this->dtInicio = $dtInicio;
+	   $this->dtinicio = $dtinicio;
 	}
 
-	public function getDtFim()
+	public function getDtfim()
 	{
-	    return $this->dtFim;
+	    return $this->dtfim;
 	}
 	
-	public function setDtFim($dtFim)
+	public function setDtfim($dtfim)
 	{
-	   $this->dtFim = $dtFim;
+	   $this->dtfim = $dtfim;
 	}
 
 	public function getStatus()
